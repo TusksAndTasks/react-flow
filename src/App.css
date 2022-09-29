@@ -1,38 +1,66 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  padding: 16px;
   display: flex;
-  flex-direction: column;
+  height: 1048px;
+}
+
+aside {
+  height: 100%;
+  border-radius: 4px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-flow: row wrap;
+  width: 400px;
+  margin-left: 16px;
+  gap: 8px;
+  padding: 16px;
+}
+
+main {
+  width: 1440px;
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
   align-items: center;
+  margin-bottom: 32px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.dndnode {
+  height: 20px;
+  padding: 4px;
+  border: 1px solid #1a192b;
+  border-radius: 2px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  cursor: grab;
 }
 
-.App-link {
-  color: #61dafb;
+.blueprint{
+  width: 180px;
+  height: 100px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.background {
+  width: 100%;
+  height: 920px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 }
