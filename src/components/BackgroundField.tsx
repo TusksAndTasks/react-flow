@@ -3,23 +3,37 @@ import ReactFlow, {
   Background,
   MiniMap,
   Controls,
-  useEdgesState,
-  useNodesState,
   Connection,
   ReactFlowInstance,
+  Node,
+  NodeChange,
+  Edge,
+  EdgeChange,
 } from 'react-flow-renderer';
 import * as React from 'react';
 import { useCallback, useRef, useState } from 'react';
 import { nodeTypes } from './Sidebar';
 
-function BackgroundField() {
+export interface IReactFlowPropsLight {
+  nodes: Node[];
+  setNodes: React.Dispatch<React.SetStateAction<Node<any>[]>>;
+  edges: Edge[];
+  setEdges: React.Dispatch<React.SetStateAction<Edge<any>[]>>;
+}
+
+export interface IReactFlowProps extends IReactFlowPropsLight {
+  onNodesChange: (nodeChanges: NodeChange[]) => void;
+  onEdgesChange: (edgeChanges: EdgeChange[]) => void;
+}
+
+function BackgroundField({ propsPackage }: { propsPackage: IReactFlowProps }) {
+  const { nodes, setNodes, onNodesChange, edges, setEdges, onEdgesChange } = propsPackage;
+
   let id = 0;
 
   const getId = () => `dndnode_${id++}`;
 
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
-  const [nodes, setNodes, onNodesChange] = useNodesState([]);
-  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance>(
     {} as ReactFlowInstance
   );
