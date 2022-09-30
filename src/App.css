@@ -39,14 +39,178 @@ header h1 {
 }
 
 .dndnode {
-  height: 20px;
   padding: 4px;
   border: 1px solid #1a192b;
-  border-radius: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: grab;
+}
+
+.dndnode [data-handleid] {
+  background-color: #1a192b;
+}
+
+.dndnode input {
+  z-index: 100;
+}
+
+.rectangleNode {
+  min-width: 164px;
+  min-height: 82px;
+}
+
+.ellipseNode {
+  min-width: 164px;
+  min-height: 82px;
+  border-radius: 50px;
+}
+
+.diamondNode {
+  width: 164px;
+  height: 164px;
+  position: relative;
+  border: none;
+  line-height: 200px;
+  text-align: center;
+}
+.diamondNode:after {
+  border: 1px solid #1a192b;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  content: '';
+  height: 100%;
+  width: 100%;
+  transform: rotateX(45deg) rotateZ(45deg);
+}
+
+.diamondNode [data-handleid] {
+  transform: translateX(-34%);
+}
+
+.diamondNode [data-handleid="c"] {
+  transform: translateX(-34px) translateY(-34%);
+}
+
+.diamondNode [data-handleid="d"] {
+  transform: translateX(37px) translateY(-34%);
+}
+
+.borderedRectangleNode{
+  min-width: 140px;
+  min-height: 82px;
+  padding: 28px;
+  position: relative;
+}
+
+.borderedRectangleNode:after{
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 24px;
+  border-left: #1a192b solid 1px;
+  border-right: #1a192b solid 1px;
+  width: calc(100% - 48px);
+  height: 100%;
+}
+
+.parallelogramNode{
+  min-width: 164px;
+  min-height: 82px;
+  border: none;
+  position: relative;
+}
+
+.parallelogramNode:after{
+  content: '';
+  width: 100%;
+  height: 100%;
+  transform: skew(20deg);
+  border: 1px solid #1a192b;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hexagonNode, .cropTopNode, .cropBottomNode {
+  width:164px;
+  height:82px;
+  padding:5px;
+  box-sizing:border-box;
+  border:none;
+  padding: 20px;
+  outline:0;
+}
+
+.hexagonNode{
+  background: linear-gradient(#1a192b,#1a192b) top   /calc(100% - 30px) 1px,
+  linear-gradient(#1a192b,#1a192b) bottom/calc(100% - 30px) 1px,
+
+  linear-gradient(to bottom right,
+          transparent calc(50% - 1px),#1a192b,transparent calc(50% + 1px))
+  top left/15px 40px,
+  linear-gradient(to bottom right,
+          transparent calc(50% - 1px),#1a192b,transparent calc(50% + 1px))
+  bottom right/15px 40px,
+  linear-gradient(to bottom left,
+          transparent calc(50% - 1px),#1a192b,transparent calc(50% + 1px))
+  top right/15px 40px,
+  linear-gradient(to bottom left,
+          transparent calc(50% - 1px),#1a192b,transparent calc(50% + 1px))
+  bottom left/15px 40px;
+  background-repeat:no-repeat;
+
+}
+
+.hexagonNode input, .cropTopNode input, .cropBottomNode input {
+  width: calc(100% - 20px);
+}
+
+.cropTopNode{
+  background: linear-gradient(#1a192b,#1a192b) top   /calc(100% - 30px) 1px,
+  linear-gradient(#1a192b,#1a192b) bottom/calc(100% - 2px) 1.5px,
+
+  linear-gradient(to bottom right,
+          transparent calc(50% - 1px),#1a192b,transparent calc(50% + 1px))
+  top left/15px 40px,
+  linear-gradient(to bottom right,
+          transparent calc(50% - 2px),#1a192b,transparent calc(50% + 2px))
+  bottom right/1px 45px,
+  linear-gradient(to bottom left,
+          transparent calc(50% - 1px),#1a192b,transparent calc(50% + 1px))
+  top right/15px 40px,
+  linear-gradient(to bottom left,
+          transparent calc(50% - 2px),#1a192b,transparent calc(50% + 2px))
+  bottom left/1px 45px;
+  background-repeat:no-repeat;
+}
+
+.cropBottomNode{
+  background: linear-gradient(#1a192b,#1a192b) top   /calc(100% - 2px) 1px,
+  linear-gradient(#1a192b,#1a192b) bottom/calc(100% - 30px) 1px,
+
+  linear-gradient(to bottom right,
+          transparent calc(50% - 2px),#1a192b,transparent calc(50% + 2px))
+  top left/1px 45px,
+  linear-gradient(to bottom right,
+          transparent calc(50% - 1px),#1a192b,transparent calc(50% + 1px))
+  bottom right/15px 40px,
+  linear-gradient(to bottom left,
+          transparent calc(50% - 2px),#1a192b,transparent calc(50% + 2px))
+  top right/1px 45px,
+  linear-gradient(to bottom left,
+          transparent calc(50% - 1px),#1a192b,transparent calc(50% + 1px))
+  bottom left/15px 40px;
+  background-repeat:no-repeat;
+}
+
+.circleNode {
+  min-width: 164px;
+  min-height: 164px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
 }
 
 .blueprint{
