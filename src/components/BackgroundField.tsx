@@ -67,7 +67,7 @@ function BackgroundField({ propsPackage }: { propsPackage: IReactFlowProps }) {
         id: getId(),
         type,
         position,
-        data: { label: `${type} node`, className: type },
+        data: { label: `${type}`, className: type },
       };
 
       setNodes((nds) => nds.concat(newNode));
